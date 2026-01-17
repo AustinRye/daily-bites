@@ -36,11 +36,9 @@ A platform where users input ingredients, dietary preferences, or health goals, 
 ### Frontend
 - **Language**: Typescript
 - **Framework**: React, Tailwind, TanStack Query
-- **Router**: Next.js
 
 ### Backend
-- **Language**: Python
-- **Framework**: FastAPI or Django???
+- **Framework**: Express.js
 - **Authentication**: JWT or oAuth???
 - **Database**: PostgreSQL
 - **AI Integration**: OpenAI API
@@ -50,7 +48,7 @@ A platform where users input ingredients, dietary preferences, or health goals, 
 - **Container**: Docker
 - **Container Orchestration Platform**: Kubernetes
 - **Cloud Platform**: AWS
-- **Recipe API**: TheMealDB
+- **Recipes**: Web Scapper or TheMealDB API???
 
 ## Architecture
 
