@@ -14,7 +14,7 @@
   "keywords": [],
   "author": "Austin Rye",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/AustinRye/daily-bites/issues"
   },
