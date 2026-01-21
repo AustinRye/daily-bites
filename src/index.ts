@@ -1,10 +1,13 @@
 import express from 'express';
 
 const app = express();
-const PORT = 8080;
 
+const { NODE_ENV = 'development' } = process.env;
+console.log(`Running in ${NODE_ENV} mode`);
+
+const { PORT = 3000, HOST = 'localhost' } = process.env;
 app.listen(PORT, () => {
-    console.log(`Server running at http://localhost:${PORT}`);
+    console.log(`Server running at http://${HOST}:${PORT}`);
 });
 
 app.get('/', (req, res) => {
