@@ -1,5 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
+import recipesRouter from './routes/recipes.routes.ts';
 
 // Load environment variables from .env file
 dotenv.config();
@@ -14,10 +15,8 @@ console.log(`Running in ${NODE_ENV} mode`);
 // Middleware to parse JSON requests
 app.use(express.json());
 
-// Basic route
-app.get('/', (req, res) => {
-    res.send('Hello World!');
-});
+// Use routes
+app.use("/api/recipes", recipesRouter)
 
 // Start the server
 const { PORT = 3000, HOST = 'localhost' } = process.env;
