@@ -1,6 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
-import recipesRouter from './routes/recipes.routes.ts';
+import recipesRouter from './routes/recipes.routes.js';
 
 // Load environment variables from .env file
 dotenv.config();
