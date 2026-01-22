@@ -1,9 +1,7 @@
-import express from 'express';
-import dotenv from 'dotenv';
+import 'dotenv/config';
+import express from 'express'
 import recipesRouter from './routes/recipes.routes.js';
-
-// Load environment variables from .env file
-dotenv.config();
+import pool from './configs/db.js';
 
 // Create an Express application
 const app = express();
