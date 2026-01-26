@@ -1,15 +1,9 @@
 import Router from 'express';
-import {
-    getAllRecipes,
-    createRecipe,
-    getRecipe,
-    updateRecipe,
-    deleteRecipe
-} from '../controllers/recipes.controller.js'
+import RecipesController from '../controllers/recipes.controller.js'
 
 const router = Router();
 
-router.route('/').get(getAllRecipes).post(createRecipe);
-router.route('/:id').get(getRecipe).put(updateRecipe).delete(deleteRecipe);
+router.route('/').get(RecipesController.getAllRecipes).post(RecipesController.createRecipe);
+router.route('/:id').get(RecipesController.getRecipe).put(RecipesController.updateRecipe).delete(RecipesController.deleteRecipe);
 
 export default router;

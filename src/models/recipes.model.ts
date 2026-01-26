@@ -1,6 +1,6 @@
 import db from '../configs/db.js';
 
-const Recipes = {
+const RecipesModel = {
     getAllRecipes: async () => {
         const result = await db.query(`
             SELECT *
@@ -8,12 +8,12 @@ const Recipes = {
         `);
         return result.rows;
     },
-    getRecipe: async (recipe_id) => {
+    getRecipe: async (id) => {
         const result = await db.query(`
             SELECT *
             FROM recipes
-            WHERE recipe_id = $1
-        `, [recipe_id]);
+            WHERE id = $1
+        `, [id]);
         return result.rows[0];
     },
     createRecipe: async (name, description) => {
@@ -27,24 +27,24 @@ const Recipes = {
         `, [name, description]);
         return result.rows[0];
     },
-    updateRecipe: async (recipe_id, { name, description }) => {
+    updateRecipe: async (id, { name, description }) => {
         const result = await db.query(`
             UPDATE recipes
             SET name = COALESCE ($1, name),
                 description = COALESCE ($2, description)
-            WHERE recipe_id = $3
+            WHERE id = $3
             RETURNING *
-        `, [name, description, recipe_id]);
+        `, [name, description, id]);
         return result.rows[0];
     },
-    deleteRecipe: async (recipe_id) => {
+    deleteRecipe: async (id) => {
         const result = await db.query(`
             DELETE FROM recipes
-            WHERE recipe_id = $1
+            WHERE id = $1
             RETURNING *
-        `, [recipe_id]);
+        `, [id]);
         return result.rows[0];
     }
 }
 
-export default Recipes;
+export default RecipesModel;

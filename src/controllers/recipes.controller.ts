@@ -1,37 +1,43 @@
-import Recipes from '../models/recipes.model.js'
+import RecipesService from '../services/recipes.service.js'
 
-export const getAllRecipes = async (req, res) => {
-    const recipes = await Recipes.getAllRecipes();
-    if (!recipes) return res.status(404).send({ error: 'Recipes not found' });
-    res.status(200).send(recipes);
-};
+const RecipesController = {
+    getAllRecipes: async (req, res) => {
+        const recipes = await RecipesService.getAllRecipes();
+        if (!recipes) return res.status(404).send({ error: 'Recipes not found' });
+        return res.status(200).send(recipes);
+    },
+    createRecipe: async (req, res) => {
+        if (!req.body) return res.status(400).send({ error: 'Recipe name is required' });
 
-export const createRecipe = async (req, res) => {
-    if (!req.body) return res.status(400).send({ error: 'Recipe name is required' });
+        const { name, description } = req.body;
+        if (!name) return res.status(400).send({ error: 'Recipe name is required' });
 
-    const { name, description } = req.body;
-    if (!name) return res.status(400).send({ error: 'Recipe name is required' });
+        const recipe = await RecipesService.createRecipe(name, description);
+        return res.status(201).send(recipe);
+    },
+    getRecipe: async (req, res) => {
+        const { id } = req.params;
+        const recipe = await RecipesService.getRecipe(id);
+        if (!recipe) return res.status(404).send({ error: 'Recipe not found' });
+        return res.status(200).send(recipe);
+    },
+    updateRecipe: async (req, res) => {
+        if (!req.body) return res.status(400).send({ error: 'Recipe name is required' });
 
-    const recipe = await Recipes.createRecipe(name, description);
-    res.status(201).send(recipe);
-};
+        const { id } = req.params;
+        const { name, description } = req.body;
+        if (!name) return res.status(400).send({ error: 'Recipe name is required' });
 
-export const getRecipe = async (req, res) => {
-    const { id } = req.params;
-    const recipe = await Recipes.getRecipe(id);
-    res.status(200).send(recipe);
-};
+        const recipe = await RecipesService.updateRecipe(id, {'name': name, 'description': description});
+        if (!recipe) return res.status(404).send({ error: 'Recipe not found' });
+        return res.status(200).send(recipe);
+    },
+    deleteRecipe: async (req, res) => {
+        const { id } = req.params;
+        const recipe = await RecipesService.deleteRecipe(id);
+        if (!recipe) return res.status(404).send({ error: 'Recipe not found' });
+        return res.sendStatus(204);
+    }
+}
 
-export const updateRecipe = async (req, res) => {
-    const { id } = req.params;
-    const recipe = await Recipes.updateRecipe('1', {'name': 'Sandwhich', 'description': 'Delicious!'});
-    if (!recipe) return res.status(404).send({ error: 'Recipe not found' });
-    res.status(200).send(recipe);
-};
-
-export const deleteRecipe = async (req, res) => {
-    const { id } = req.params;
-    const recipe = await Recipes.deleteRecipe(id);
-    if (!recipe) return res.status(404).send({ error: 'Recipe not found' });
-    return res.sendStatus(204);
-};
+export default RecipesController;
