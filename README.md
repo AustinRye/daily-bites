@@ -7,37 +7,39 @@ A platform where users input ingredients, dietary preferences, or health goals, 
 ## Features
 
 - [ ] User
-    - [ ] Email/password auth
-    - [ ] JWT/session-based authentication
-    - [ ] User profiles
+  - [ ] Email/password auth
+  - [ ] JWT/session-based authentication
+  - [ ] User profiles
 - [ ] Recipe Book
-    - [ ] Create/edit/delete recipes
-    - [ ] Save favorites
+  - [ ] Create/edit/delete recipes
+  - [ ] Save favorites
 - [ ] Recipe Database
-    - [ ] Ingredients
-    - [ ] Steps
-    - [ ] Tags (sweet, spicy, etc)
-    - [ ] Search
+  - [ ] Ingredients
+  - [ ] Steps
+  - [ ] Tags (sweet, spicy, etc)
+  - [ ] Search
 - [ ] Cooking Mode
-    - [ ] Step-by-step instructions
+  - [ ] Step-by-step instructions
 - [ ] Recipe Feed
-    - [ ] Browse new recipes
-    - [ ] Search by categories
+  - [ ] Browse new recipes
+  - [ ] Search by categories
 - [ ] Social
-    - [ ] Public vs private recipes
-    - [ ] Likes/bookmarks
+  - [ ] Public vs private recipes
+  - [ ] Likes/bookmarks
 - [ ] Personalization
-    - [ ] Recommended recipes
-    - [ ] Recently cooked
-    - [ ] Favorite ingredients bias
+  - [ ] Recommended recipes
+  - [ ] Recently cooked
+  - [ ] Favorite ingredients bias
 
 ## Tech Stack
 
 ### Frontend
+
 - **Language**: Typescript
 - **Framework**: React, Tailwind, TanStack Query
 
 ### Backend
+
 - **Framework**: Express.js
 - **Authentication**: JWT or oAuth???
 - **Database**: PostgreSQL
