@@ -1,13 +1,12 @@
-import express from "express";
-import recipesRouter from "./routes/recipes.routes.js";
+import express from 'express'
+import cors from 'cors'
+import recipesRouter from './routes/recipes.routes.js'
 
-// Create an Express application
-const app = express();
+const app = express()
 
-// Middleware to parse JSON requests
-app.use(express.json());
+app.use(express.json())
+app.use(cors())
 
-// Use routes
-app.use("/api/recipes", recipesRouter);
+app.use('/api/recipes', recipesRouter)
 
-export default app;
+export default app
