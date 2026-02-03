@@ -28,7 +28,7 @@ function Navbar({ pages }: NavbarProps) {
             {/* Nav Items */}
             <div className="pl-3 border-l border-gray-300">
               {pages.map(({ name, href }) => (
-                <Link to={href} className={`py-2 px-3 ${linkStyle}`}>
+                <Link key={name} to={href} className={`py-2 px-3 ${linkStyle}`}>
                   {name}
                 </Link>
               ))}
