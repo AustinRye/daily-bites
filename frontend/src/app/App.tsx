@@ -8,7 +8,7 @@ function App() {
     <>
       <Navbar pages={pages} />
 
-      <div className="mt-14 mx-auto max-w-7xl px-6">
+      <div className="mt-14 mx-auto max-w-7xl px-6 pt-5">
         <Routes>
           {pages.map(({ href, Component }) => (
             <Route path={href} element={<Component />} />

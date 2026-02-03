@@ -1,6 +1,6 @@
 {
   "name": "foodie",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "A platform where users input ingredients, dietary preferences, or health goals, and the AI generates personalized recipes, meal plans, and shopping lists.",
   "main": "server.js",
   "scripts": {
