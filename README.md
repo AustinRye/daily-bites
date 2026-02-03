@@ -1,4 +1,4 @@
-# Daily Bites (Smart Recipe & Meal Planner)
+# Foodie (Smart Recipe & Meal Planner)
 
 ## Overview
 
